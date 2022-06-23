@@ -2,7 +2,9 @@ package example;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,9 +22,8 @@ public class FullNameController {
     }
 
     @PostMapping("/")
-    public String postFullName(@RequestParam String LastName, @RequestParam String FirstName, @RequestParam String MiddleName) {
-        users.add(new User(LastName, FirstName, MiddleName));
+    public String postFullName(@ModelAttribute User user) {
+        users.add(user);
         return "redirect:/";
     }
-
 }

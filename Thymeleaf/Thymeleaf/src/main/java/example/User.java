@@ -5,6 +5,9 @@ public class User {
     String FirstName;
     String MiddleName;
 
+    public User() {
+    }
+
     public User(String lastName, String firstName, String middleName) {
         LastName = lastName;
         FirstName = firstName;
