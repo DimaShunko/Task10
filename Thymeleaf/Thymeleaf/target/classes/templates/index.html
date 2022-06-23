@@ -1,0 +1,44 @@
+<html lang="en" html  xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        table {
+            width: 300px;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<h1>Форма</h1>
+
+<form action="/" method="post">
+
+    <p><input type="text" name=LastName placeholder="Фамилия" class="form-control"/></p>
+
+    <p><input type="text" name=FirstName placeholder="Имя" class="form-control"/></p>
+
+    <p><input type="text" name=MiddleName placeholder="Отчество" class="form-control"/></p>
+
+    <p><button type="submit" class="btn btn-success">Добавить</button></p>
+</form>
+
+<table  >
+      <caption>Users</caption>
+      <tr>
+          <th>Фамилия</th>
+          <th>Имя</th>
+          <th>Отчество</th>
+      </tr>
+      <tr th:each="user: ${users}">
+          <td th:text="${user.LastName}"></td>
+          <td th:text="${user.FirstName}"></td>
+          <td th:text="${user.MiddleName}"></td>
+      </tr>
+</table>
+
+</body>
+</html>
